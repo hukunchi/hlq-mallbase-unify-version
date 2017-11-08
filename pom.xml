@@ -78,13 +78,13 @@
 		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~ 公共模块 ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 
-		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~ 新车贷订单 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~mallbase后端服务 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 		<mallbase-management.version>1.0.0</mallbase-management.version>
 		<mallbase-management.deploy.version>1.0.0</mallbase-management.deploy.version>
 		<mallbase-management.facade.version>1.0.0</mallbase-management.facade.version>
 		<mallbase-management.service.version>1.0.0</mallbase-management.service.version>
 		<mallbase-management.dao.version>1.0.0</mallbase-management.dao.version>
-		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~ 新车贷订单 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~ mallbase后端服务 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 	</properties>
 
