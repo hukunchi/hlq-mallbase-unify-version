@@ -1,0 +1,194 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hlq</groupId>
+	<artifactId>hlq-mallbase-unify-version</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<!-- 统一定义Maven项目或依赖版本号 -->
+	<properties>
+		<!-- 项目源文件编码形式 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- junit单元 -->
+		<junit.version>4.12</junit.version>
+		<!-- spring -->
+		<spring.version>4.3.8.RELEASE</spring.version>
+		<!-- spring切面织入 -->
+		<aspectjweaver.version>1.8.9</aspectjweaver.version>
+		<!-- mysql驱动 -->
+		<mysql.version>5.1.35</mysql.version>
+		<!-- slf日志 -->
+		<slf4j.version>1.6.4</slf4j.version>
+		<!-- 阿里巴巴druid数据库连接池 -->
+		<druid.version>1.0.27</druid.version>
+		<!-- commons lang -->
+		<commons-lang3.version>3.3.2</commons-lang3.version>
+		<!-- commons io -->
+		<commons-io.version>1.3.2</commons-io.version>
+		<!-- commons collections -->
+		<commons-collections.version>3.2.1</commons-collections.version>
+		<!-- commons beanutils -->
+		<commons-beanutils.version>1.9.2</commons-beanutils.version>
+		<!-- commons httpclient -->
+		<commons-httpclient.version>3.1</commons-httpclient.version>
+		<!-- commons codec -->
+		<commons-codec.version>1.10</commons-codec.version>
+		<!-- 阿里巴巴fastjson序列化 -->
+		<fastjson.version>1.2.4</fastjson.version>
+		<!-- office组件 -->
+		<poi.version>3.10-FINAL</poi.version>
+		<!-- 阿里巴巴 Dubbo -->
+		<dubbo.version>2.5.4-SNAPSHOT</dubbo.version>
+		<!-- zookeeper -->
+		<zookeeper.version>3.4.9</zookeeper.version>
+		<!-- zk客户端 -->
+		<zkclient.version>0.1</zkclient.version>
+		<!-- apache httpclient -->
+		<httpclient.version>4.5.1</httpclient.version>
+		<!-- redis客户端版本 -->
+		<jedis.version>2.6.0</jedis.version>
+		<!-- logback日志版本 -->
+		<logback.version>1.1.1</logback.version>
+		<!-- 字节码编码 -->
+		<javassist.version>3.15.0-GA</javassist.version>
+		<!-- ehcache缓存 -->
+		<ehcache.version>2.10.0</ehcache.version>
+		<!-- 编译时的编码 -->
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+		<!-- Log4j日志版本 -->
+		<log4j.version>1.2.17</log4j.version>
+		<!-- rocketmq版本 -->
+		<rocketmq.version>3.4.6</rocketmq.version>
+		<touna-common.version>1.0.4</touna-common.version>
+		<!-- spring整合redis插件版本 -->
+		<spring-data-redis>1.6.4.RELEASE</spring-data-redis>
+		<!-- 忽略测试 -->
+		<skipTests>true</skipTests>
+		<!-- 配置文件目录 -->
+		<configPath>src/main/resources</configPath>
+
+		<groovy.verion>2.4.12</groovy.verion>
+
+		<mybatis_plus.version>2.1-gamma</mybatis_plus.version>
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~ 公共模块~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<common-service.version>1.0.4</common-service.version>
+		<touna-common-service.version>1.0.6</touna-common-service.version>
+		<touna-common-utils.version>1.0.8</touna-common-utils.version>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~ 公共模块 ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~ 新车贷订单 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<mallbase-management.version>1.0.0</mallbase-management.version>
+		<mallbase-management.deploy.version>1.0.0</mallbase-management.deploy.version>
+		<mallbase-management.facade.version>1.0.0</mallbase-management.facade.version>
+		<mallbase-management.service.version>1.0.0</mallbase-management.service.version>
+		<mallbase-management.dao.version>1.0.0</mallbase-management.dao.version>
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~ 新车贷订单 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>${dubbo.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+					</exclusion>
+					<exclusion>
+						<!-- 排除传递spring依赖 -->
+						<groupId>org.springframework</groupId>
+						<artifactId>spring</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>com.touna.loan</groupId>
+				<artifactId>common-service</artifactId>
+				<version>${common-service.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.touna.loan</groupId>
+				<artifactId>touna-common-service</artifactId>
+				<version>${touna-common-service.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>com.touna.loan</groupId>
+						<artifactId>common-service</artifactId>
+					</exclusion>
+					<exclusion>
+						<artifactId>spring</artifactId>
+						<groupId>org.springframework</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+
+			<dependency>
+				<groupId>com.hlq</groupId>
+				<artifactId>mallbase-management.dao</artifactId>
+				<version>${mallbase-management.dao.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.hlq</groupId>
+				<artifactId>mallbase-management.service</artifactId>
+				<version>${mallbase-management.service.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.hlq</groupId>
+				<artifactId>mallbase-management.facade</artifactId>
+				<version>${mallbase-management.facade.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+
+			<!-- <dependency> <groupId>org.mybatis</groupId> <artifactId>mybatis</artifactId> 
+				<version>${mybatis.version}</version> </dependency> -->
+
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus</artifactId>
+				<version>${mybatis_plus.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-context</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-webmvc</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-tx</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	
+
+</project>
